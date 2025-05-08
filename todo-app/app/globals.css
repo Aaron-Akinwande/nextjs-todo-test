@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+.clock {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #eee;
+  position: relative;
+  margin: 0 auto;
+}
+
+.clock-face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.clock-hand {
+  width: 2px;
+  height: 30px;
+  background: #0DD3C5;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform-origin: bottom center;
+}
+
+.clock-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0DD3C5;
+  transform: translate(-50%, -50%);
+}
