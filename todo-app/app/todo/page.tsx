@@ -193,7 +193,7 @@ export default function Todo() {
         </div>
       </div>
 
-      <div className=" flex justify-end pt-5 ">
+      <div className=" flex justify-end p-5 ">
         <button
           className="rounded-full w-12 h-12 flex justify-center items-center bg-[#0DD3C5] hover:bg-[#0bb0a3] p-0 shadow-lg"
           onClick={() => setIsAddingTask(true)}
