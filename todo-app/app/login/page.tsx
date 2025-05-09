@@ -1,61 +1,45 @@
 "use client";
-import Link from 'next/link';
-import { useState } from 'react';
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    // const { toast } = useToast();
-  
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      
-      if (!email || !password) {
-        alert(
-           "Error Please fill in all fields",
-       
-        );
+    if (!email || !password) {
+      alert("Error Please fill in all fields");
+      return;
+    }
+
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (user.email === email && user.password === password) {
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("currentUser", JSON.stringify(user));
+
+        window.location.href = "/todo";
         return;
+      } else {
+        alert(" user does not exist");
       }
-  
-      // Check if user exists in localStorage
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        const user = JSON.parse(storedUser);
-        if (user.email === email && user.password === password) {
-          // Set user as logged in
-          localStorage.setItem('isLoggedIn', 'true');
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          
-          // Redirect to dashboard
-          window.location.href = '/todo';
-          return;
-        } else {
-            alert(" user does not exist")
-        }
-      }
+    }
 
-      console.log(storedUser)
-  
-    //   toast({
-    //     title: "Error",
-    //     description: "Invalid email or password",
-    //     variant: "destructive",
-    //   });
-    };
-  
+    console.log(storedUser);
+
+    alert("Error Invalid email or password");
+  };
 
   return (
     <div className=" bg-gray-100 flex items-center justify-center p-4">
       <div className=" flex flex-col gap-10 w-full max-w-md bg-gray-100 rounded-lg  p-6">
         <h1 className="text-xl font-semibold text-center mb-6">Welcome back</h1>
 
-      
-
-        <div className=' flex justify-center'>
-            <img src="/login_img.png" alt="" />
+        <div className=" flex justify-center">
+          <img src="/login_img.png" alt="" />
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -68,7 +52,7 @@ export default function Login() {
               className="w-full px-4 py-2 rounded-xl border border-gray-200"
             />
           </div>
-          
+
           <div>
             <input
               type="password"
@@ -84,8 +68,11 @@ export default function Login() {
               Forgot password?
             </Link>
           </div>
-          
-          <button type="submit" className=" p-3 rounded-xl  w-full bg-[#0DD3C5] hover:bg-[#0bb0a3] text-white mt-4">
+
+          <button
+            type="submit"
+            className=" p-3 rounded-xl  w-full bg-[#0DD3C5] hover:bg-[#0bb0a3] text-white mt-4"
+          >
             Login
           </button>
         </form>
