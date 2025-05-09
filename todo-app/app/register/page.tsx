@@ -46,7 +46,7 @@ export default function Register() {
       <h1 className="text-xl font-semibold text-center mb-6">Welcome to Onboard!</h1>
       
       <p className="text-gray-500 text-center text-sm mb-6">
-        Let's help to meet up your tasks.
+        "Lets help to meet up your tasks."
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
