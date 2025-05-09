@@ -41,8 +41,8 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-    <div className="w-full max-w-md bg-white rounded-lg shadow-sm p-6">
+    <div className=" bg-gray-100 flex items-center justify-center p-4">
+    <div className="w-full max-w-md bg-gray-100 rounded-lg  p-6">
       <h1 className="text-xl font-semibold text-center mb-6">Welcome to Onboard!</h1>
       
       <p className="text-gray-500 text-center text-sm mb-6">
@@ -56,7 +56,7 @@ export default function Register() {
             placeholder="Enter your Full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-200"
+            className="w-full px-4 py-2  border border-gray-200 rounded-xl"
           />
         </div>
         
@@ -66,7 +66,7 @@ export default function Register() {
             placeholder="Enter your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-200"
+            className="w-full px-4 py-2  border border-gray-200 rounded-xl"
           />
         </div>
         
@@ -76,7 +76,7 @@ export default function Register() {
             placeholder="Enter Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-200"
+            className="w-full px-4 py-2  border border-gray-200 rounded-xl"
           />
         </div>
         
@@ -86,11 +86,11 @@ export default function Register() {
             placeholder="Confirm password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-200"
+            className="w-full px-4 py-2  border border-gray-200 rounded-xl"
           />
         </div>
         
-        <button type="submit" className="w-full bg-[#0DD3C5] hover:bg-[#0bb0a3] text-white mt-4">
+        <button type="submit" className=" p-3 rounded-xl  w-full bg-[#0DD3C5] hover:bg-[#0bb0a3] text-white mt-4">
           Register
         </button>
       </form>

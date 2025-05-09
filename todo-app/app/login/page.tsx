@@ -48,34 +48,14 @@ export default function Login() {
   
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-sm p-6">
+    <div className=" bg-gray-100 flex items-center justify-center p-4">
+      <div className=" flex flex-col gap-10 w-full max-w-md bg-gray-100 rounded-lg  p-6">
         <h1 className="text-xl font-semibold text-center mb-6">Welcome back</h1>
 
-        <div className="flex justify-center mb-8">
-          {/* Login illustration */}
-          <div className="w-32 h-32 relative">
-            <div className="absolute left-2 bottom-0">
-              <div className="w-8 h-24 flex flex-col items-center">
-                <div className="w-6 h-6 rounded-full bg-[#0DD3C5]"></div>
-                <div className="w-2 h-10 bg-[#0DD3C5]"></div>
-                <div className="flex">
-                  <div className="w-3 h-6 bg-[#0DD3C5]"></div>
-                  <div className="w-3 h-6 bg-[#0DD3C5]"></div>
-                </div>
-              </div>
-            </div>
-            <div className="absolute right-2 bottom-0">
-              <div className="w-8 h-24 flex flex-col items-center">
-                <div className="w-6 h-6 rounded-full bg-[#F98BAE]"></div>
-                <div className="w-2 h-10 bg-[#F98BAE]"></div>
-                <div className="flex">
-                  <div className="w-3 h-6 bg-[#F98BAE]"></div>
-                  <div className="w-3 h-6 bg-[#F98BAE]"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+      
+
+        <div className=' flex justify-center'>
+            <img src="/login_img.png" alt="" />
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -85,7 +65,7 @@ export default function Login() {
               placeholder="Enter your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 rounded-md border border-gray-200"
+              className="w-full px-4 py-2 rounded-xl border border-gray-200"
             />
           </div>
           
@@ -95,7 +75,7 @@ export default function Login() {
               placeholder="Enter Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 rounded-md border border-gray-200"
+              className="w-full px-4 py-2 rounded-xl border border-gray-200"
             />
           </div>
 
@@ -105,7 +85,7 @@ export default function Login() {
             </Link>
           </div>
           
-          <button type="submit" className="w-full bg-[#0DD3C5] hover:bg-[#0bb0a3] text-white mt-4">
+          <button type="submit" className=" p-3 rounded-xl  w-full bg-[#0DD3C5] hover:bg-[#0bb0a3] text-white mt-4">
             Login
           </button>
         </form>

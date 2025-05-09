@@ -22,27 +22,27 @@ export default function Todo() {
 //   const navigate = useNavigate();
 
 useEffect(() => {
-    // Check if user is logged in
+    
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     if (!isLoggedIn) {
         window.location.href = '/login';
       return;
     }
 
-    // Load user data
-    const currentUser = localStorage.getItem('currentUser');
+    
+    const currentUser = localStorage.getItem('user');
     if (currentUser) {
+        console.log(currentUser)
       const user = JSON.parse(currentUser);
       setUserName(user.name);
     }
 
-    // Load tasks from localStorage
+    
     const savedTasks = localStorage.getItem('tasks');
     if (savedTasks) {
       setTasks(JSON.parse(savedTasks));
     } else {
-      // Set demo tasks
-      const demoTasks = [
+           const demoTasks = [
         { id: '1', text: 'Learning Programming by 5PM', completed: false },
         { id: '2', text: 'Learn React hooks by 1PM', completed: true },
         { id: '3', text: 'Learn hooks today at 3PM', completed: false },
@@ -52,7 +52,7 @@ useEffect(() => {
       localStorage.setItem('tasks', JSON.stringify(demoTasks));
     }
 
-    // Set greeting based on time of day
+    
     const currentHour = new Date().getHours();
     if (currentHour < 12) {
       setGreeting('Good morning');
@@ -62,7 +62,7 @@ useEffect(() => {
       setGreeting('Good evening');
     }
 
-    // Update time every minute
+    
     const timer = setInterval(() => {
       setTime(new Date());
     }, 60000);
@@ -117,8 +117,8 @@ useEffect(() => {
 
 
   return (
-    <div className="min-h-screen bg-white">
-    {/* Header */}
+    <div className=" bg-gray-100">
+   
     <div className="bg-[#0DD3C5] text-white p-6 rounded-b-3xl">
       <div className="flex justify-between items-center">
         <div>
@@ -133,11 +133,11 @@ useEffect(() => {
       </div>
     </div>
 
-    {/* Clock and Greeting */}
+   
     <div className="px-6 py-4">
-      <p className="text-sm text-gray-600">{greeting}</p>
+      <p className="text-lg font-semibold text-gray-600">{greeting}</p>
       
-      <div className="my-4 outline">
+      <div className="my-4">
         <div className="clock">
           <div className="clock-face">
             <div className="clock-hand" 
@@ -145,8 +145,8 @@ useEffect(() => {
             <div className="clock-hand" 
                  style={{ 
                    transform: getMinuteHandRotation(),
-                   height: '35px',
-                   width: '1px'
+                   height: '60px',
+                   width: '2px',
                  }}></div>
             <div className="clock-center"></div>
           </div>
@@ -154,11 +154,10 @@ useEffect(() => {
       </div>
     </div>
 
-    {/* Task List */}
     <div className="px-6">
       <h2 className="text-lg font-medium mb-4">Task list</h2>
       
-      <div className="bg-white rounded-lg shadow-sm p-4">
+      <div className="bg-white rounded-xl shadow-sm p-4">
         <h3 className="text-sm font-medium text-gray-500 mb-2">Daily Task</h3>
         
         <div className="space-y-3 mt-4">
@@ -206,13 +205,12 @@ useEffect(() => {
       </div>
     </div>
 
-    {/* Add Task Button */}
-    <div className="fixed bottom-6 right-6">
+    <div className=" flex justify-end pt-5 ">
       <button
-        className="rounded-full w-12 h-12 bg-[#0DD3C5] hover:bg-[#0bb0a3] p-0 shadow-lg"
+        className="rounded-full w-12 h-12 flex justify-center items-center bg-[#0DD3C5] hover:bg-[#0bb0a3] p-0 shadow-lg"
         onClick={() => setIsAddingTask(true)}
       >
-        <div className="h-6 w-6" >+</div>
+        <div className="h-15 w-15 flex justify-center items-center" >+</div>
       </button>
     </div>
   </div>
